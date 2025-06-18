@@ -26,5 +26,22 @@ choco install curl -y
 ``` shell
 
 git init
+git add .
+git commit -m "message"
+git remote add origin git@github.com:caremao/code-cracker-core.git
+branch -M main
+push -u origin main
+```
 
+## Adding lombok dependencyt to project because I'm lazy
+
+``` gradle
+
+dependencies {
+  implementation 'org.springframework.boot:spring-boot-starter'
+  compileOnly 'org.projectlombok:lombok'
+  annotationProcessor 'org.projectlombok:lombok'
+  testImplementation 'org.springframework.boot:spring-boot-starter-test'
+  testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
 ```
