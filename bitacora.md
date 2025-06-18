@@ -35,13 +35,21 @@ push -u origin main
 
 ## Adding lombok dependencyt to project because I'm lazy
 
+Installing mvn with choco: `choco install maven -y`
+
+Adding dependency
 ``` gradle
 
-dependencies {
-  implementation 'org.springframework.boot:spring-boot-starter'
-  compileOnly 'org.projectlombok:lombok'
-  annotationProcessor 'org.projectlombok:lombok'
-  testImplementation 'org.springframework.boot:spring-boot-starter-test'
-  testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-}
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <optional>true</optional>
+</dependency>
+```
+
+Testing new dependency:
+
+```shell
+
+mvn clean install
 ```
