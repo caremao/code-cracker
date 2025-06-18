@@ -1,4 +1,4 @@
-package com.caremao.code_breaker.core;
+package com.caremao.codebreaker;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
