@@ -4,32 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce7259c0-eef4-4a74-9f06-958b8641833c" name="Changes" comment="Adding pom configuration to root project.">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cli/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cli/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cli/target/classes/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cli/target/classes/com/caremao/codebreaker/CoreApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cli/target/code-cracker-cli-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cli/target/maven-archiver/pom.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cli/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cli/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cli/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cli/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cli/target/surefire-reports/2025-06-18T02-25-36_462.dumpstream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cli/target/surefire-reports/TEST-com.caremao.codebreaker.CoreApplicationTests.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cli/target/surefire-reports/com.caremao.codebreaker.CoreApplicationTests.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cli/target/test-classes/com/caremao/codebreaker/CoreApplicationTests.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/caremao/code_breaker/core/WordProcessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/caremao/code_breaker/core/model/Letter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/caremao/code_breaker/core/model/Word.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/core/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/caremao/code_breaker/core/CoreApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/cli/src/main/java/com/caremao/codebreaker/CoreApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/test/java/com/caremao/code_breaker/core/CoreApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/cli/src/test/java/com/caremao/codebreaker/CoreApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    <list default="true" id="ce7259c0-eef4-4a74-9f06-958b8641833c" name="Changes" comment="Adding cli project, organizing pom structure.">
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/caremao/code_breaker/core/model/Letter.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/caremao/code_breaker/core/model/Letter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +78,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750227975694</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Adding cli project, organizing pom structure.">
+      <option name="closed" value="true" />
+      <created>1750231963722</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1750231963722</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -118,6 +102,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Adding pom configuration to root project." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding pom configuration to root project." />
+    <MESSAGE value="Adding cli project, organizing pom structure." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding cli project, organizing pom structure." />
   </component>
 </project>

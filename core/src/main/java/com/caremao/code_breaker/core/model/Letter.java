@@ -6,6 +6,6 @@ import lombok.Data;
 @Data
 @Builder
 public class Letter {
-    private char letter;
+    private char text;
     private int score;
 }
