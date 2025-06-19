@@ -23,7 +23,7 @@ class WordProcessorTest {
     WordProcessor processor;
 
     @Test
-    void processWords() {
+    void processWordsShouldProcessAndReturnOrderedWords() {
         // Arrange
         List<String> words = List.of("SAID",
                 "SEEN",
@@ -48,9 +48,7 @@ class WordProcessorTest {
         List<Word> processedWords = processor.processWords(words);
 
         // Assert
-        System.out.println("List of words\n" + processedWords.stream()
-                .map(Word::toString)
-                .collect(Collectors.joining("\n")));
+        printWords(processedWords);
 
         assertThat(processedWords)
                 .describedAs("Sort words by its weight")
@@ -75,5 +73,50 @@ class WordProcessorTest {
                         tuple("CHIP", 8L)
                 );
 
+    }
+
+    @Test
+    void filterByFeedbackShouldFilterUnwantedWords() {
+        // Arrange
+        List<String> words = List.of("SAID",
+                "SEEN",
+                "PENS",
+                "DOES",
+                "CHIP",
+                "SEEM",
+                "SLUM",
+                "FEED",
+                "HELP",
+                "TEAM",
+                "BEGS",
+                "MENU",
+                "READ",
+                "REST",
+                "TRIP",
+                "HERE",
+                "FLEE"
+        );
+
+        // Act
+        List<Word> processedWords = processor.processWords(words);
+        List<Word> filteredWords = processor.filterByFeedback(processedWords, "SEEM", 0);
+
+        // Assert
+        printWords(filteredWords);
+
+        assertThat(filteredWords)
+                .describedAs("Sort words by its weight")
+                .extracting(Word::getText, Word::getScore)
+                .containsExactly(
+                        tuple("TRIP", 6L),
+                        tuple("CHIP", 6L)
+                );
+
+    }
+
+    private static void printWords(List<Word> processedWords) {
+        System.out.println("List of words\n" + processedWords.stream()
+                .map(Word::toString)
+                .collect(Collectors.joining("\n")));
     }
 }

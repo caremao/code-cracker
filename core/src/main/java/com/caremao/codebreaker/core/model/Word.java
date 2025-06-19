@@ -14,7 +14,6 @@ public class Word {
 
     @NonNull
     private String text;
-    @NonNull
     private List<Letter> letters;
     private int size;
     private long score;

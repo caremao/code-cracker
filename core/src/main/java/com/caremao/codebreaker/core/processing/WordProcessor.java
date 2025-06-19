@@ -16,16 +16,56 @@ public class WordProcessor {
         if (Objects.isNull(input) || input.isEmpty()) {
             throw new IllegalArgumentException("Input should not be empty");
         }
-        return orderWords(weightWords(
-                input.stream().map(word -> Word
-                                .builder()
-                                .text(word)
-                                .letters(parseChars(word))
-                                .build())
+        return triageWords(
+                input.stream().map(this::processSingleWord)
                         .collect(Collectors.toCollection(ArrayList::new))
-        ));
-
+        );
     }
+
+    private Word processSingleWord(String word) {
+        return Word
+                .builder()
+                .text(word)
+                .letters(parseChars(word))
+                .build();
+    }
+
+    public List<Word> filterByFeedbackRaw(final List<String> input, String selection, int matches) {
+        return filterByFeedback(processWords(input), processSingleWord(selection), matches);
+    }
+
+    public List<Word> filterByFeedback(final List<Word> input, String selection, int matches) {
+        return filterByFeedback(input, processSingleWord(selection), matches);
+    }
+
+    public List<Word> filterByFeedback(final List<Word> input, Word selection, int matches) {
+        List<Word> result = new ArrayList<>(input);
+        List<Word> list = result.stream().filter(word -> similarity(word, selection) == matches).toList();
+        return triageWords(list);
+    }
+
+    private List<Word> triageWords(List<Word> list) {
+        return orderWords(weightWords(list));
+    }
+
+    private int similarity(Word selection, Word toCompare) {
+        List<Letter> letters1 = selection.getLetters();
+        List<Letter> letters2 = toCompare.getLetters();
+
+        int minLength = Math.min(letters1.size(), letters2.size());
+
+        int count = 0;
+        for (int i = 0; i < minLength; i++) {
+            Character c1 = letters1.get(i).getText();
+            Character c2 = letters2.get(i).getText();
+            if (c1.equals(c2)) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
 
     private List<Letter> parseChars(final String source) {
         Objects.requireNonNull(source, "Line cannot be empty");
@@ -39,7 +79,7 @@ public class WordProcessor {
                 .collect(Collectors.toCollection(ArrayList::new));
     }
 
-    public List<Word> weightWords(final List<Word> input) {
+    private List<Word> weightWords(final List<Word> input) {
         // Check size for word
         // Validate that all words are same size (fail otherwise)
         Set<Integer> sizes = input.stream()
@@ -78,7 +118,7 @@ public class WordProcessor {
         return input;
     }
 
-    public List<Word> orderWords(final List<Word> input) {
+    private List<Word> orderWords(final List<Word> input) {
         List<Word> ordered = new ArrayList<>(input);
         ordered.sort(Comparator.comparing(Word::getScore).reversed());
         return ordered;
