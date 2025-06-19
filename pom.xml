@@ -33,6 +33,8 @@
                 <version>1.18.38</version>
                 <scope>provided</scope>
             </dependency>
+
+            <!-- Test -->
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter</artifactId>
@@ -49,6 +51,12 @@
                 <groupId>org.assertj</groupId>
                 <artifactId>assertj-core</artifactId>
                 <version>3.27.3</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>6.1.5</version>
                 <scope>test</scope>
             </dependency>
         </dependencies>
