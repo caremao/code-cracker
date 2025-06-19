@@ -35,6 +35,22 @@
             <artifactId>code-cracker-core</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+
+        <dependency>
+            <groupId>info.picocli</groupId>
+            <artifactId>picocli</artifactId>
+            <version>4.7.7</version>
+        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>org.jline</groupId>-->
+        <!--            <artifactId>jline</artifactId>-->
+        <!--            <version>3.30.4</version>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.jline</groupId>-->
+        <!--            <artifactId>jline-terminal-jansi</artifactId>-->
+        <!--            <version>3.30.4</version>-->
+        <!--        </dependency>-->
     </dependencies>
 
     <build>
@@ -42,6 +58,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>3.5.0</version>
             </plugin>
         </plugins>
     </build>

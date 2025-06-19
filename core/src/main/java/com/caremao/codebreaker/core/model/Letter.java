@@ -1,4 +1,4 @@
-package com.caremao.code_breaker.core.model;
+package com.caremao.codebreaker.core.model;
 
 import lombok.Builder;
 import lombok.Data;

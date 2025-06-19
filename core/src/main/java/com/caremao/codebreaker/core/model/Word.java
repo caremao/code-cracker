@@ -1,7 +1,9 @@
-package com.caremao.code_breaker.core.model;
+package com.caremao.codebreaker.core.model;
 
 import lombok.Builder;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 @Builder
@@ -9,6 +11,7 @@ public class Word {
 
     private String text;
     private int score;
-    private Letter letter;
+    private List<Letter> letters;
+    private int size;
 
 }
