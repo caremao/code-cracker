@@ -114,6 +114,47 @@ class WordProcessorTest {
 
     }
 
+    @Test
+    void processAListToFindWord() {
+        // Arrange
+        List<String> words = List.of("SAID",
+                "SEEN",
+                "PENS",
+                "DOES",
+                "CHIP",
+                "SEEM",
+                "SLUM",
+                "FEED",
+                "HELP",
+                "TEAM",
+                "BEGS",
+                "MENU",
+                "READ",
+                "REST",
+                "TRIP",
+                "HERE",
+                "FLEE"
+        );
+
+        // Act
+        List<Word> processedWords = processor.processWords(words);
+        List<Word> firstFilter = processor.filterByFeedback(processedWords, "SEEM", 0);
+        List<Word> secondFilter = processor.filterByFeedback(processedWords, "CHIP", 2);
+
+        // Assert
+        printWords(processedWords);
+        printWords(firstFilter);
+        printWords(secondFilter);
+
+        assertThat(secondFilter)
+                .describedAs("Sort words by its weight")
+                .extracting(Word::getText, Word::getScore)
+                .containsExactly(
+                        tuple("TRIP", 4L)
+                );
+
+    }
+
     private static void printWords(List<Word> processedWords) {
         System.out.println("List of words\n" + processedWords.stream()
                 .map(Word::toString)

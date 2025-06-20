@@ -38,6 +38,7 @@ push -u origin main
 Installing mvn with choco: `choco install maven -y`
 
 Adding dependency
+
 ``` gradle
 
 <dependency>
@@ -52,4 +53,27 @@ Testing new dependency:
 ```shell
 
 mvn clean install
+```
+
+## Test words
+
+```text
+said
+seen
+pens
+does
+chip
+seem
+scum
+feed
+help
+team
+begs
+menu
+read
+rest
+trip
+here
+flee
+!
 ```
