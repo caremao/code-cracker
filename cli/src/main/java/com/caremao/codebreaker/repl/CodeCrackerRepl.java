@@ -37,13 +37,10 @@ public class CodeCrackerRepl implements Runnable {
                     
                     ##  AI enhanced password recovery tool.  ##################
                     
-                    For ROBCO Industries (TM) and its subsidiaries use only!
-                    All connections are logged and monitored. Any unauthorized
-                    use will be prosecuted to the fullest extent of the law. If
-                    you do not agree to these conditions, disconnect now.
+                    <Text, list of words anything to be printed>
                     
                     Type 'help' for instructions.
-                    
+                    > <prompt>
                     ###########################################################
                     """);
             writer.flush();

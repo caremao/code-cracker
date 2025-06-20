@@ -23,6 +23,7 @@ public class CoreApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
+//        new CommandLine(context.getBean(CliLanternaRunner.class)).execute(args);
         new CommandLine(context.getBean(CliMainRunner.class)).execute(args);
     }
 
