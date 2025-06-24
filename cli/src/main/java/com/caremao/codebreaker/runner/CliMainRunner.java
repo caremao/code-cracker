@@ -26,9 +26,15 @@ public class CliMainRunner implements Runnable {
 
     @Override
     public void run() {
-        collectWords();
-        confirmOrCorrectWords();
-        processLoop();
+        while (true) {
+            collectWords();
+            processLoop();
+            printLine("Press 'Enter' to continue, type 'exit' to exit.");
+            String line = scanner.nextLine().trim();
+            if ("exit".equals(line)) {
+                break;
+            }
+        }
     }
 
     private void collectWords() {

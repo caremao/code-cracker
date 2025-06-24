@@ -1,5 +1,6 @@
 package com.caremao.codebreaker;
 
+import com.caremao.codebreaker.runner.CliLanternaRunner;
 import com.caremao.codebreaker.runner.CliMainRunner;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -23,8 +24,8 @@ public class CoreApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-//        new CommandLine(context.getBean(CliLanternaRunner.class)).execute(args);
-        new CommandLine(context.getBean(CliMainRunner.class)).execute(args);
+        new CommandLine(context.getBean(CliLanternaRunner.class)).execute(args);
+//        new CommandLine(context.getBean(CliMainRunner.class)).execute(args);
     }
 
 }

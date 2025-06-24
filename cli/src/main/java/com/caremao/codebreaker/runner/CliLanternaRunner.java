@@ -12,13 +12,16 @@ import org.springframework.stereotype.Component;
 import picocli.CommandLine;
 
 import java.io.IOException;
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Component
 @CommandLine.Command(name = "code-cracker-ui", mixinStandardHelpOptions = true, description = "Lanterna CLI for Code Cracker")
 public class CliLanternaRunner implements Runnable {
 
+    private final List<String> inputWords = new ArrayList<>();
     private final WordProcessor wordProcessor;
 
     public CliLanternaRunner(WordProcessor wordProcessor) {
@@ -27,46 +30,74 @@ public class CliLanternaRunner implements Runnable {
 
     @Override
     public void run() {
-        try {
-            DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory();
-            Screen screen = terminalFactory.createScreen();
+        DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory();
+        try (Screen screen = terminalFactory.createScreen()) {
             screen.startScreen();
 
             MultiWindowTextGUI gui = new MultiWindowTextGUI(screen, new DefaultWindowManager(), new EmptySpace(TextColor.ANSI.BLACK));
-            BasicWindow window = new BasicWindow("ROBCO Industries(TM) Terminal");
+            BasicWindow window = new BasicWindow("ROBCO Industries(TM) Termlink protocol");
+            window.setFixedSize(new TerminalSize(53, 22));
 
             Panel contentPanel = new Panel();
             contentPanel.setLayoutManager(new LinearLayout(Direction.VERTICAL));
-            contentPanel.addComponent(new Label("## AI enhanced password recovery tool ##").addStyle(SGR.BOLD));
+
+            // App message label
+            Label messageLabel = new Label("Welcome to the AI enhanced password recovery tool")
+                    .addStyle(SGR.BOLD);
+
+            // List of words
+            Panel textListPanel = new Panel();
+            textListPanel.setSize(new TerminalSize(53, 17));
 
             // Input words
-            List<String> inputWords = new ArrayList<>();
-            TextBox wordInput = new TextBox(new TerminalSize(40, 1));
-            contentPanel.addComponent(new Label("Enter words (one at a time, leave empty to finish):"));
-            contentPanel.addComponent(wordInput);
+            TextBox inputBox = new TextBox(new TerminalSize(53, 1));
+            inputBox.setTextChangeListener((newText, changedByUser) -> {
+                if ("\n".equals(newText)) {
+                    addWordToList(inputBox.getText(), textListPanel);
+                    resetInputTextBox(inputBox);
+                }
+            });
+            TextBox wordInput = resetInputTextBox(inputBox);
 
             Button addButton = new Button("Add", () -> {
                 String word = wordInput.getText().trim().toUpperCase();
                 if (!word.isEmpty()) {
-                    inputWords.add(word);
+                    addWordToList(word, textListPanel);
                     wordInput.setText("");
                 }
             });
-
-            contentPanel.addComponent(addButton);
+//            contentPanel.addComponent(addButton);
 
             Button doneButton = new Button("Confirm", () -> {
                 window.close();
                 processLoop(screen, inputWords);
             });
+//            contentPanel.addComponent(doneButton);
 
-            contentPanel.addComponent(doneButton);
+            contentPanel.addComponent(messageLabel);
+            contentPanel.addComponent(textListPanel);
+            contentPanel.addComponent(wordInput);
+
             window.setComponent(contentPanel);
             gui.addWindowAndWait(window);
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void addWordToList(String input, Panel textListPanel) {
+        inputWords.add(input);
+        List<Word> words = wordProcessor.processWords(inputWords);
+        words.forEach(word -> {
+            Label messageLabel = new Label(word.getText());
+
+            textListPanel.addComponent(messageLabel);
+        });
+    }
+
+    private TextBox resetInputTextBox(TextBox inputBox) {
+        return inputBox.setText(" > ").setCaretPosition(3);
     }
 
     private void processLoop(Screen screen, List<String> inputWords) {
@@ -79,9 +110,9 @@ public class CliLanternaRunner implements Runnable {
             panel.addComponent(new Label(currentList.size() + " words left. Most probable:"));
             Map<Integer, Word> indexMap = new HashMap<>();
             int i = 1;
-            for (Word w : currentList) {
-                panel.addComponent(new Label(String.format("%d. %s (%d)", i, w.getText(), w.getScore())));
-                indexMap.put(i, w);
+            for (Word word : currentList) {
+                panel.addComponent(new Label(String.format("%d. %s (%d)", i, word.getText(), word.getScore())));
+                indexMap.put(i, word);
                 i++;
             }
 
