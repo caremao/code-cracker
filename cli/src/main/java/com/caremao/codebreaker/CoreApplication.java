@@ -20,7 +20,6 @@ public class CoreApplication implements CommandLineRunner {
         SpringApplication.run(CoreApplication.class, args);
     }
 
-
     @Override
     public void run(String... args) {
 //        new CommandLine(context.getBean(CliLanternaRunner.class)).execute(args);
