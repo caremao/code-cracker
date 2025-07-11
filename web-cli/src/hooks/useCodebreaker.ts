@@ -2,7 +2,7 @@
 import { useState, useCallback } from 'react';
 import { Word } from '@/types/codebreaker';
 
-const API_BASE = 'http://localhost/codebreaker/v1';
+const API_BASE = 'http://localhost:8124/codebreaker/v1';
 
 export const useCodebreaker = () => {
   const [words, setWords] = useState<Word[]>([]);
