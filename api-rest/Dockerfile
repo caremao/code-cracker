@@ -5,10 +5,12 @@ WORKDIR /workspace
 # copy pom files first for layer caching
 COPY pom.xml ./
 COPY core/pom.xml core/pom.xml
+COPY cli/pom.xml cli/pom.xml
 COPY api-rest/pom.xml api-rest/pom.xml
 
 # copy sources
 COPY core/src core/src
+COPY cli/src cli/src
 COPY api-rest/src api-rest/src
 
 RUN mvn -pl api-rest -am package -DskipTests
