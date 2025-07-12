@@ -1,18 +1,22 @@
-# Use a minimal JVM image
+# Build the Spring Boot application
+FROM maven:3.9.6-eclipse-temurin-17 AS build
+WORKDIR /workspace
+
+# copy pom files first for layer caching
+COPY pom.xml ./
+COPY core/pom.xml core/pom.xml
+COPY api-rest/pom.xml api-rest/pom.xml
+
+# copy sources
+COPY core/src core/src
+COPY api-rest/src api-rest/src
+
+RUN mvn -pl api-rest -am package -DskipTests
+
+# Runtime image
 FROM eclipse-temurin:17-jre
-
-# Set working directory
 WORKDIR /app
-
-# Copy built jar from build stage or host
-ARG JAR_FILE=target/code-cracker-api-rest-0.0.1-SNAPSHOT.jar
-COPY ${JAR_FILE} app.jar
-
-# Expose default port
+COPY --from=build /workspace/api-rest/target/code-cracker-api-rest-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8124
-
-# Allow port to be overridden with SERVER_PORT env variable
 ENV SERVER_PORT=8124
-
-# Run application
 ENTRYPOINT ["java","-jar","/app/app.jar"]
