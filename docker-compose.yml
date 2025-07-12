@@ -1,7 +1,9 @@
 version: "3.9"
 services:
   api-rest:
-    build: ./api-rest
+    build:
+      context: .
+      dockerfile: api-rest/Dockerfile
     ports:
       - "8124:8124"
     environment:
