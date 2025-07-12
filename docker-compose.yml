@@ -1,6 +1,7 @@
 version: "3.9"
 services:
   api-rest:
+    container_name: code-cracker-api-rest
     build:
       context: .
       dockerfile: api-rest/Dockerfile
@@ -10,6 +11,7 @@ services:
       - SERVER_PORT=8124
 
   web-cli:
+    container_name: code-cracker-web-cli
     build:
       context: ./web-cli
       args:
@@ -18,3 +20,6 @@ services:
       - "8080:80"
     depends_on:
       - api-rest
+networks:
+  default:
+    name: code-cracker-net
