@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  api-rest:
+    build: ./api-rest
+    ports:
+      - "8124:8124"
+    environment:
+      - SERVER_PORT=8124
+
+  web-cli:
+    build:
+      context: ./web-cli
+      args:
+        VITE_API_BASE: http://api-rest:8124/codebreaker/v1
+    ports:
+      - "8080:80"
+    depends_on:
+      - api-rest

@@ -2,7 +2,9 @@
 import { useState, useCallback } from 'react';
 import { Word } from '@/types/codebreaker';
 
-const API_BASE = 'http://localhost:8124/codebreaker/v1';
+// allow the api base url to be configured at build time
+const API_BASE =
+  import.meta.env.VITE_API_BASE ?? 'http://localhost:8124/codebreaker/v1';
 
 export const useCodebreaker = () => {
   const [words, setWords] = useState<Word[]>([]);
