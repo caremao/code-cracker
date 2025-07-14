@@ -14,7 +14,7 @@ This project provides Docker images for the API (`api-rest`) and the web client 
    docker compose up
    ```
 4. Access the services:
-   - API: `http://localhost:8124/codebreaker/v1`
+   - API: `http://192.168.100.142:8124/codebreaker/v1`
    - Web client: `http://localhost:8080`
 
 Stop the containers with `Ctrl+C` and remove them with `docker compose down`.
@@ -22,7 +22,6 @@ Stop the containers with `Ctrl+C` and remove them with `docker compose down`.
 ## Configuration
 
 - `api-rest` exposes port **8124** and reads `SERVER_PORT` from the environment.
-- `web-cli` is built with the `VITE_API_BASE` build argument. By default it points
-  to `http://192.168.100.142:8124/codebreaker/v1` but can be overridden during
-  the build.
+- `web-cli` reads the API endpoint from the `API_ENDPOINT` environment variable.
+  If not set it defaults to `http://192.168.100.142:8124/codebreaker/v1`.
 
