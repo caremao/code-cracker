@@ -7,7 +7,6 @@ import com.caremao.codebreaker.core.model.Word;
 import com.caremao.codebreaker.core.processing.WordProcessor;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,10 +27,8 @@ public class CodeBreakerController {
 
     @PostMapping("/words")
     @Operation(summary = "Adds a new word to the list")
-    @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Word added"),
-            @ApiResponse(responseCode = "400", description = "Invalid word")
-    })
+    @ApiResponse(responseCode = "200", description = "Word added")
+    @ApiResponse(responseCode = "400", description = "Invalid word")
     public ResponseEntity<Void> addWord(@RequestBody WordRequest request) {
         inputWords.add(request.word());
         return ResponseEntity.ok().build();
@@ -45,10 +42,8 @@ public class CodeBreakerController {
 
     @DeleteMapping("/words/{word}")
     @Operation(summary = "Removes a word from the list")
-    @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Deleted"),
-            @ApiResponse(responseCode = "404", description = "Word not found")
-    })
+    @ApiResponse(responseCode = "200", description = "Deleted")
+    @ApiResponse(responseCode = "404", description = "Word not found")
     public ResponseEntity<Void> deleteWord(@PathVariable String word) {
         inputWords.remove(word);
         return ResponseEntity.ok().build();
@@ -56,10 +51,8 @@ public class CodeBreakerController {
 
     @PostMapping("/select")
     @Operation(summary = "Selects a word and number of matches")
-    @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Selection successful"),
-            @ApiResponse(responseCode = "404", description = "Error while selecting word")
-    })
+    @ApiResponse(responseCode = "200", description = "Selection successful")
+    @ApiResponse(responseCode = "404", description = "Error while selecting word")
     public ResponseEntity<List<WordMatchResponse>> selectWord(@RequestBody SelectionRequest request) {
         inputWords.clear();
 

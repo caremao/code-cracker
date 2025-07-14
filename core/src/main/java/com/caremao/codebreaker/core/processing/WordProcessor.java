@@ -14,7 +14,10 @@ public class WordProcessor {
 
     public List<Word> processWords(final List<String> input) {
         if (Objects.isNull(input)) {
-            throw new IllegalArgumentException("Input should not be empty");
+            throw new IllegalArgumentException("Input should not be null");
+        }
+        if (input.isEmpty()) {
+            return List.of();
         }
         return triageWords(
                 input.stream().map(this::processSingleWord)
