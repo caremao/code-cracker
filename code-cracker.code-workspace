@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"java.configuration.updateBuildConfiguration": "automatic",
+		"java.compile.nullAnalysis.mode": "automatic",
+		"eslint.enable": true,
+		"editor.formatOnSave": true,
+		"files.exclude": {
+			"**/target": true,
+			"**/node_modules": true
+		}
+	}
+}
