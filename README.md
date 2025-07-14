@@ -22,5 +22,7 @@ Stop the containers with `Ctrl+C` and remove them with `docker compose down`.
 ## Configuration
 
 - `api-rest` exposes port **8124** and reads `SERVER_PORT` from the environment.
-- `web-cli` is built with the `VITE_API_BASE` build argument. In `docker-compose.yml` it is set to communicate with the `api-rest` container.
+- `web-cli` is built with the `VITE_API_BASE` build argument. By default it points
+  to `http://192.168.100.142:8124/codebreaker/v1` but can be overridden during
+  the build.
 
