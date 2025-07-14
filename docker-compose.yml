@@ -15,7 +15,7 @@ services:
     build:
       context: ./web-cli
       args:
-        VITE_API_BASE: http://api-rest:8124/codebreaker/v1
+        VITE_API_BASE: http://192.168.100.142:8124/codebreaker/v1
     ports:
       - "8080:80"
     depends_on:
