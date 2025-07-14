@@ -44,7 +44,7 @@ public class CodeBreakerController {
     @Operation(summary = "Removes a word from the list")
     @ApiResponse(responseCode = "200", description = "Deleted")
     @ApiResponse(responseCode = "404", description = "Word not found")
-    public ResponseEntity<Void> deleteWord(@PathVariable String word) {
+    public ResponseEntity<Void> deleteWord(@PathVariable("word") String word) {
         inputWords.remove(word);
         return ResponseEntity.ok().build();
     }
@@ -54,11 +54,11 @@ public class CodeBreakerController {
     @ApiResponse(responseCode = "200", description = "Selection successful")
     @ApiResponse(responseCode = "404", description = "Error while selecting word")
     public ResponseEntity<List<WordMatchResponse>> selectWord(@RequestBody SelectionRequest request) {
-        inputWords.clear();
-
-        inputWords.addAll(wordProcessor.filterByFeedbackRaw(inputWords, request.word(), request.hits()).stream()
+        List<String> filteredList = wordProcessor.filterByFeedbackRaw(inputWords, request.word(), request.hits()).stream()
                 .map(Word::getText)
-                .toList());
+                .toList();
+        inputWords.clear();
+        inputWords.addAll(filteredList);
         return ResponseEntity.ok(processList(inputWords));
     }
 

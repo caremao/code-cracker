@@ -48,6 +48,10 @@ public class WordProcessor {
     }
 
     private List<Word> triageWords(List<Word> list) {
+        if (Objects.isNull(list) || list.isEmpty()){
+            return List.of();
+        }
+
         return orderWords(weightWords(list));
     }
 
