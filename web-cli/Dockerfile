@@ -6,7 +6,7 @@ RUN npm ci
 COPY . .
 
 # allow API endpoint to be set during build
-ARG VITE_API_BASE=http://localhost:8124/codebreaker/v1
+ARG VITE_API_BASE=http://192.168.100.142:8124/codebreaker/v1
 ENV VITE_API_BASE=$VITE_API_BASE
 
 RUN npm run build

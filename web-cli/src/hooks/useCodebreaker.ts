@@ -2,10 +2,10 @@
 import { useState, useCallback } from 'react';
 import { Word } from '@/types/codebreaker';
 
-// allow the api base url to be configured at build time
-// default to the network IP when no build-time variable is provided
+// allow the API base URL to be configured at build time
+// default to the network IP when not provided
 const API_BASE =
-  import.meta.env.VITE_API_BASE ?? 'http://192.168.100.142:8124/codebreaker/v1';
+  import.meta.env.VITE_API_BASE || 'http://192.168.100.142:8124/codebreaker/v1';
 
 export const useCodebreaker = () => {
   const [words, setWords] = useState<Word[]>([]);
