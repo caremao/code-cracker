@@ -13,7 +13,7 @@ import java.util.stream.IntStream;
 public class WordProcessor {
 
     public List<Word> processWords(final List<String> input) {
-        if (Objects.isNull(input) || input.isEmpty()) {
+        if (Objects.isNull(input)) {
             throw new IllegalArgumentException("Input should not be empty");
         }
         return triageWords(
