@@ -1,27 +1,45 @@
-
-import React, { useState, useEffect, useRef } from 'react';
-import { useCodebreaker } from '@/hooks/useCodebreaker';
-import { Word } from '@/types/codebreaker';
+import React, { useState, useEffect, useRef } from "react";
+import { useCodebreaker } from "@/hooks/useCodebreaker";
+import { Word } from "@/types/codebreaker";
 
 const Terminal = () => {
-  const [inputValue, setInputValue] = useState('');
-  const { words, message, isLoading, addWord, selectWord, deleteWord, resetGame, fetchWords } = useCodebreaker();
+  const [inputValue, setInputValue] = useState("");
+  const {
+    words,
+    message,
+    isLoading,
+    addWord,
+    selectWord,
+    deleteWord,
+    resetGame,
+    fetchWords,
+  } = useCodebreaker();
   const inputRef = useRef<HTMLInputElement>(null);
+
+  const focusInput = () => inputRef.current?.focus();
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (document.activeElement !== inputRef.current) {
+        inputRef.current?.focus();
+      }
+    }, 100); // cada 100ms revisa
+
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     fetchWords();
+    focusInput();
   }, [fetchWords]);
 
-  useEffect(() => {
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
-  }, []);
-
-  const handleInputSubmit = async (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter' && inputValue.trim()) {
+  const handleInputSubmit = async (
+    e: React.KeyboardEvent<HTMLInputElement>
+  ) => {
+    if (e.key === "Enter" && inputValue.trim()) {
       await addWord(inputValue.trim());
-      setInputValue('');
+      setInputValue("");
+      focusInput();
     }
   };
 
@@ -36,7 +54,7 @@ const Terminal = () => {
   const renderWordButtons = (word: Word) => {
     const buttons = [];
     const wordLength = word.word.length;
-    
+
     for (let i = 0; i <= wordLength - 1; i++) {
       buttons.push(
         <button
@@ -49,11 +67,9 @@ const Terminal = () => {
         </button>
       );
     }
-    
+
     return buttons;
   };
-
-  const sortedWords = [...words].sort((a, b) => a.word.localeCompare(b.word));
 
   return (
     <div className="terminal-container">
@@ -68,9 +84,12 @@ const Terminal = () => {
 
         {/* Lista de palabras */}
         <div className="terminal-words">
-          {sortedWords.length > 0 ? (
-            sortedWords.map((word, index) => (
-              <div key={`${word.word}-${index}`} className="terminal-line word-line">
+          {words.length > 0 ? (
+            words.map((word, index) => (
+              <div
+                key={`${word.word}-${index}`}
+                className="terminal-line word-line"
+              >
                 <div className="word-info">
                   <span className="word-text">{word.word}</span>
                   <span className="word-matches">({word.matches})</span>
@@ -83,9 +102,7 @@ const Terminal = () => {
                     [X]
                   </button>
                 </div>
-                <div className="word-buttons">
-                  {renderWordButtons(word)}
-                </div>
+                <div className="word-buttons">{renderWordButtons(word)}</div>
               </div>
             ))
           ) : (
@@ -98,14 +115,21 @@ const Terminal = () => {
           <div className="terminal-controls">
             <button
               className="terminal-button mr-4"
-              onClick={resetGame}
+              onClick={async () => {
+                await resetGame();
+                await fetchWords();
+                focusInput();
+              }}
               disabled={isLoading}
             >
               [RESET]
             </button>
             <button
               className="terminal-button"
-              onClick={fetchWords}
+              onClick={async () => {
+                await fetchWords();
+                focusInput();
+              }}
               disabled={isLoading}
             >
               [REFRESH]

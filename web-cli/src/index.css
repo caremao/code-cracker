@@ -1,10 +1,10 @@
+/* Import Google Font for monospace terminal look */
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Import Google Font for monospace terminal look */
-@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap');
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
@@ -223,6 +223,9 @@ All colors MUST be HSL.
 .word-matches {
   color: hsl(var(--terminal-accent));
   font-weight: bold;
+  /* display: inline-block; */
+  min-width: 5ch;
+  text-align: right;
 }
 
 .word-buttons {
