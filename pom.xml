@@ -15,7 +15,7 @@
 
     <modules>
         <module>core</module>
-        <module>cli</module>
+        <module>api-rest</module>
     </modules>
 
     <properties>

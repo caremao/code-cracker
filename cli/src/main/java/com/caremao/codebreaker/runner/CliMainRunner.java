@@ -27,7 +27,7 @@ public class CliMainRunner implements Runnable {
     @Override
     public void run() {
         collectWords();
-        confirmOrCorrectWords();
+//        confirmOrCorrectWords();
         processLoop();
     }
 

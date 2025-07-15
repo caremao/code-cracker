@@ -4,8 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce7259c0-eef4-4a74-9f06-958b8641833c" name="Changes" comment="Adding cli project, organizing pom structure.">
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/caremao/code_breaker/core/model/Letter.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/caremao/code_breaker/core/model/Letter.java" afterDir="false" />
+    <list default="true" id="ce7259c0-eef4-4a74-9f06-958b8641833c" name="Changes" comment="Input validation. Session management.">
+      <change afterPath="$PROJECT_DIR$/AGENTS.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-rest/AGENTS.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-rest/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cli/AGENTS.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cli/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/AGENTS.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-cli/AGENTS.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-cli/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/web-cli/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,17 +32,37 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="Exception" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feature/cursor-and-ordered-reload" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 8
-}]]></component>
+  <component name="GitRewordedCommitMessages">
+    <option name="commitMessagesMapping">
+      <RewordedCommitMessageMapping>
+        <option name="originalMessage" value="Controller fix." />
+        <option name="rewordedMessage" value="Adding project to vscode&#10;&#10;&#10;Fix Controller for all calls.&#10;&#10;&#10;Git ignore&#10;&#10;&#10;Controller fix." />
+      </RewordedCommitMessageMapping>
+    </option>
+    <option name="currentCommit" value="1" />
+    <option name="onto" value="a7571d35a778b21f4560f474914add34e59eaaef" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2yfYk5m7bsi7yyAutz29cxRx8xV" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -40,27 +71,198 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "E:/mao/workspace/code-cracker/cli/src/main/resources",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ApiRestApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.CodeCrackerRepl.executor&quot;: &quot;Run&quot;,
+    &quot;Application.CoreApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.WordProcessor.executor&quot;: &quot;Run&quot;,
+    &quot;JAR Application.code-cracker-cli-0.0.1-SNAPSHOT.jar.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.WordProcessorTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.WordProcessorTest.filterByFeedbackShouldFilterUnwantedWords.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.WordProcessorTest.processAListToFindWord.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.WordProcessorTest.processWords.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.code-cracker [clean,compile,verify].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.code-cracker [clean,compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.code-cracker [clean,package,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.code-cracker [clean,validate,compile...].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.code-cracker [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.code-cracker [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.code-cracker [deploy].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.code-cracker [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.code-cracker [package,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.code-cracker [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.code-cracker [validate].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.code-cracker [verify].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.code-cracker-api-rest [deploy].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.code-cracker-api-rest [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.code-cracker-api-rest [site].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.code-cracker-cli.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/mao/workspace/code-cracker/cli/src/main/resources&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;TEXT&quot;
+    ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\mao\workspace\code-cracker\cli\src\main\resources" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.caremao.codebreaker.core.processing" />
+      <recent name="com.caremao.codebreaker.core" />
       <recent name="com.caremao.code_breaker.core" />
       <recent name="com.caremao.codebreaker" />
       <recent name="" />
     </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.caremao.codebreaker.core" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.ApiRestApplication">
+    <configuration name="ApiRestApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.caremao.codebreaker.api.ApiRestApplication" />
+      <module name="code-cracker-api-rest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.caremao.codebreaker.api.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CoreApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.caremao.codebreaker.CoreApplication" />
+      <module name="code-cracker-cli" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.caremao.codebreaker.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WordProcessor" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.caremao.codebreaker.core.processing.WordProcessor" />
+      <module name="code-cracker-core" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.caremao.codebreaker.core.processing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="code-cracker-cli-0.0.1-SNAPSHOT.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/cli/target/code-cracker-cli-0.0.1-SNAPSHOT.jar" />
+      <method v="2" />
+    </configuration>
+    <configuration name="code-cracker [clean,package,install]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="package" />
+                <option value="install" />
+              </list>
+            </option>
+            <option name="multimoduleDir" />
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="code-cracker-cli" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="compile" />
+                <option value="exec:java" />
+                <option value="-Dexec.mainClass=com.caremao.codebreaker.CoreApplication" />
+              </list>
+            </option>
+            <option name="multimoduleDir" />
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.ApiRestApplication" />
+      <item itemvalue="Application.CoreApplication" />
+      <item itemvalue="Application.WordProcessor" />
+      <item itemvalue="JAR Application.code-cracker-cli-0.0.1-SNAPSHOT.jar" />
+      <item itemvalue="Maven.code-cracker-cli" />
+      <item itemvalue="Maven.code-cracker [clean,package,install]" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Maven.code-cracker [clean,package,install]" />
+        <item itemvalue="JAR Application.code-cracker-cli-0.0.1-SNAPSHOT.jar" />
+        <item itemvalue="Application.WordProcessor" />
+        <item itemvalue="Application.CoreApplication" />
+        <item itemvalue="Application.ApiRestApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -86,7 +288,111 @@
       <option name="project" value="LOCAL" />
       <updated>1750231963722</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Sonar suggestion for attribute naming.">
+      <option name="closed" value="true" />
+      <created>1750232018296</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1750232018296</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Create Word procesor to process the words.">
+      <option name="closed" value="true" />
+      <created>1750306580835</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1750306580835</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Sorting words by its weight.">
+      <option name="closed" value="true" />
+      <created>1750312378127</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1750312378127</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Filtering results by the selection feedback.">
+      <option name="closed" value="true" />
+      <created>1750314960176</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1750314960176</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Adding cli terminal support.">
+      <option name="closed" value="true" />
+      <created>1750379365317</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1750379365317</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Adding cli terminal support.">
+      <option name="closed" value="true" />
+      <created>1750393178337</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1750393178337</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Finishing cleaning up some docker configs.">
+      <option name="closed" value="true" />
+      <created>1752356146539</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1752356146539</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Removing cli from dependencies">
+      <option name="closed" value="true" />
+      <created>1752357779499</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1752357779499</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Controller fix.">
+      <option name="closed" value="true" />
+      <created>1752533910363</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1752533910363</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Git ignore">
+      <option name="closed" value="true" />
+      <created>1752533970392</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1752533970392</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Fix Controller for all calls.">
+      <option name="closed" value="true" />
+      <created>1752535359645</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1752535359645</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Fixing minor issues in front.">
+      <option name="closed" value="true" />
+      <created>1752545439293</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1752545439293</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Input validation. Session management.">
+      <option name="closed" value="true" />
+      <created>1752550223793</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1752550223793</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -103,6 +409,44 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Adding pom configuration to root project." />
     <MESSAGE value="Adding cli project, organizing pom structure." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding cli project, organizing pom structure." />
+    <MESSAGE value="Sonar suggestion for attribute naming." />
+    <MESSAGE value="Create Word procesor to process the words." />
+    <MESSAGE value="Sorting words by its weight." />
+    <MESSAGE value="Filtering results by the selection feedback." />
+    <MESSAGE value="Adding cli terminal support." />
+    <MESSAGE value="Finishing cleaning up some docker configs." />
+    <MESSAGE value="Removing cli from dependencies" />
+    <MESSAGE value="Controller fix." />
+    <MESSAGE value="Git ignore" />
+    <MESSAGE value="Fix Controller for all calls." />
+    <MESSAGE value="Fixing minor issues in front." />
+    <MESSAGE value="Input validation. Session management." />
+    <option name="LAST_COMMIT_MESSAGE" value="Input validation. Session management." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/cli/src/main/java/com/caremao/codebreaker/runner/CliMainRunner.java</url>
+          <line>81</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/cli/src/main/java/com/caremao/codebreaker/runner/CliMainRunner.java</url>
+          <line>100</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/api-rest/src/main/java/com/caremao/codebreaker/api/controller/CodeBreakerController.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="wordProcessor.filterByFeedback(currentList, selectedWord, matches)" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

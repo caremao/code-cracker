@@ -1,0 +1,365 @@
+/* Import Google Font for monospace terminal look */
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Terminal colors */
+    --terminal-bg: 120 100% 5%;
+    --terminal-fg: 120 100% 70%;
+    --terminal-accent: 120 100% 85%;
+    --terminal-border: 120 50% 25%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Courier Prime', 'Courier New', monospace;
+  }
+}
+
+/* Terminal Styles */
+.terminal-container {
+  min-height: 100vh;
+  background-color: hsl(var(--terminal-bg));
+  color: hsl(var(--terminal-fg));
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.2;
+  padding: 20px;
+  overflow-x: auto;
+}
+
+.terminal-screen {
+  max-width: 80ch;
+  min-height: 22em;
+  margin: 0 auto;
+  border: 2px solid hsl(var(--terminal-border));
+  border-radius: 4px;
+  padding: 16px;
+  background-color: hsl(var(--terminal-bg));
+  box-shadow: 
+    0 0 20px rgba(0, 255, 0, 0.3),
+    inset 0 0 20px rgba(0, 255, 0, 0.1);
+  position: relative;
+}
+
+.terminal-screen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 255, 0, 0.03) 2px,
+      rgba(0, 255, 0, 0.03) 4px
+    );
+  pointer-events: none;
+}
+
+.terminal-line {
+  margin-bottom: 4px;
+  min-height: 1.2em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.terminal-header {
+  border-bottom: 1px solid hsl(var(--terminal-border));
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
+
+.message-line {
+  color: hsl(var(--terminal-accent));
+  font-weight: bold;
+  text-shadow: 0 0 5px currentColor;
+}
+
+.terminal-words {
+  min-height: 300px;
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 16px;
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--terminal-fg)) hsl(var(--terminal-bg));
+}
+
+.terminal-words::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminal-words::-webkit-scrollbar-track {
+  background: hsl(var(--terminal-bg));
+}
+
+.terminal-words::-webkit-scrollbar-thumb {
+  background: hsl(var(--terminal-fg));
+  border-radius: 4px;
+}
+
+.word-line {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: center;
+  padding: 2px 0;
+  border-bottom: 1px dotted hsl(var(--terminal-border));
+}
+
+.word-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.word-text {
+  font-weight: bold;
+  min-width: 120px;
+}
+
+.word-matches {
+  color: hsl(var(--terminal-accent));
+  font-weight: bold;
+  /* display: inline-block; */
+  min-width: 5ch;
+  text-align: right;
+}
+
+.word-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.terminal-button {
+  background: transparent;
+  border: 1px solid hsl(var(--terminal-fg));
+  color: hsl(var(--terminal-fg));
+  padding: 2px 6px;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  min-width: 32px;
+}
+
+.terminal-button:hover:not(:disabled) {
+  background-color: hsl(var(--terminal-fg));
+  color: hsl(var(--terminal-bg));
+  box-shadow: 0 0 8px hsl(var(--terminal-fg));
+  text-shadow: none;
+}
+
+.terminal-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.delete-button {
+  background: transparent;
+  border: 1px solid #ff6b6b;
+  color: #ff6b6b;
+  padding: 1px 4px;
+  font-family: inherit;
+  font-size: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.delete-button:hover:not(:disabled) {
+  background-color: #ff6b6b;
+  color: hsl(var(--terminal-bg));
+  box-shadow: 0 0 5px #ff6b6b;
+}
+
+.terminal-input-area {
+  border-top: 1px solid hsl(var(--terminal-border));
+  padding-top: 8px;
+}
+
+.terminal-controls {
+  margin-bottom: 8px;
+}
+
+.terminal-prompt {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.prompt-symbol {
+  color: hsl(var(--terminal-accent));
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.terminal-input {
+  background: transparent;
+  border: none;
+  color: hsl(var(--terminal-fg));
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+  flex: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.terminal-input::placeholder {
+  color: hsl(var(--terminal-border));
+  opacity: 0.7;
+}
+
+.loading-indicator {
+  color: hsl(var(--terminal-accent));
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .terminal-container {
+    padding: 10px;
+    font-size: 12px;
+  }
+  
+  .terminal-screen {
+    min-width: 320px;
+    padding: 12px;
+  }
+  
+  .word-line {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  
+  .word-buttons {
+    justify-content: flex-start;
+  }
+}
+
+/* Glow effects */
+.terminal-line,
+.terminal-button,
+.terminal-input {
+  text-shadow: 0 0 2px currentColor;
+}
+
+.terminal-screen {
+  animation: terminal-flicker 0.15s infinite linear alternate;
+}
+
+@keyframes terminal-flicker {
+  0% { opacity: 1; }
+  98% { opacity: 1; }
+  99% { opacity: 0.98; }
+  100% { opacity: 1; }
+}
