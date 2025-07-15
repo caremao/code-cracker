@@ -25,3 +25,7 @@ Stop the containers with `Ctrl+C` and remove them with `docker compose down`.
 - `web-cli` reads the API endpoint from the `API_ENDPOINT` environment variable.
   If not set it defaults to `http://192.168.100.142:8124/codebreaker/v1`.
 
+## Contributor Guidelines
+
+Each module contains an `AGENTS.md` file with instructions on running tests and builds.
+Refer to those files when contributing changes.

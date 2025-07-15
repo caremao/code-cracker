@@ -4,12 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce7259c0-eef4-4a74-9f06-958b8641833c" name="Changes" comment="Fix Controller for all calls.">
+    <list default="true" id="ce7259c0-eef4-4a74-9f06-958b8641833c" name="Changes" comment="Input validation. Session management.">
+      <change afterPath="$PROJECT_DIR$/AGENTS.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-rest/AGENTS.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-rest/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cli/AGENTS.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cli/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/AGENTS.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-cli/AGENTS.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-rest/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api-rest/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-cli/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/web-cli/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,11 +34,27 @@
       <list>
         <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="Exception" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feature/cursor-and-ordered-reload" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitRewordedCommitMessages">
+    <option name="commitMessagesMapping">
+      <RewordedCommitMessageMapping>
+        <option name="originalMessage" value="Controller fix." />
+        <option name="rewordedMessage" value="Adding project to vscode&#10;&#10;&#10;Fix Controller for all calls.&#10;&#10;&#10;Git ignore&#10;&#10;&#10;Controller fix." />
+      </RewordedCommitMessageMapping>
+    </option>
+    <option name="currentCommit" value="1" />
+    <option name="onto" value="a7571d35a778b21f4560f474914add34e59eaaef" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -48,54 +71,54 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.ApiRestApplication.executor": "Debug",
-    "Application.CodeCrackerRepl.executor": "Run",
-    "Application.CoreApplication.executor": "Run",
-    "Application.WordProcessor.executor": "Run",
-    "JAR Application.code-cracker-cli-0.0.1-SNAPSHOT.jar.executor": "Run",
-    "JUnit.WordProcessorTest.executor": "Run",
-    "JUnit.WordProcessorTest.filterByFeedbackShouldFilterUnwantedWords.executor": "Run",
-    "JUnit.WordProcessorTest.processAListToFindWord.executor": "Run",
-    "JUnit.WordProcessorTest.processWords.executor": "Run",
-    "Maven.code-cracker [clean,compile,verify].executor": "Run",
-    "Maven.code-cracker [clean,compile].executor": "Run",
-    "Maven.code-cracker [clean,package,install].executor": "Run",
-    "Maven.code-cracker [clean,validate,compile...].executor": "Run",
-    "Maven.code-cracker [clean].executor": "Run",
-    "Maven.code-cracker [compile].executor": "Run",
-    "Maven.code-cracker [deploy].executor": "Run",
-    "Maven.code-cracker [install].executor": "Run",
-    "Maven.code-cracker [package,install].executor": "Run",
-    "Maven.code-cracker [package].executor": "Run",
-    "Maven.code-cracker [validate].executor": "Run",
-    "Maven.code-cracker [verify].executor": "Run",
-    "Maven.code-cracker-api-rest [deploy].executor": "Run",
-    "Maven.code-cracker-api-rest [install].executor": "Run",
-    "Maven.code-cracker-api-rest [site].executor": "Run",
-    "Maven.code-cracker-cli.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "feature/cleaning-up",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "E:/mao/workspace/code-cracker/cli/src/main/resources",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ApiRestApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.CodeCrackerRepl.executor&quot;: &quot;Run&quot;,
+    &quot;Application.CoreApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.WordProcessor.executor&quot;: &quot;Run&quot;,
+    &quot;JAR Application.code-cracker-cli-0.0.1-SNAPSHOT.jar.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.WordProcessorTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.WordProcessorTest.filterByFeedbackShouldFilterUnwantedWords.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.WordProcessorTest.processAListToFindWord.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.WordProcessorTest.processWords.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.code-cracker [clean,compile,verify].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.code-cracker [clean,compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.code-cracker [clean,package,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.code-cracker [clean,validate,compile...].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.code-cracker [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.code-cracker [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.code-cracker [deploy].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.code-cracker [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.code-cracker [package,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.code-cracker [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.code-cracker [validate].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.code-cracker [verify].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.code-cracker-api-rest [deploy].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.code-cracker-api-rest [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.code-cracker-api-rest [site].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.code-cracker-cli.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/mao/workspace/code-cracker/cli/src/main/resources&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "TEXT"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;TEXT&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\mao\workspace\code-cracker\cli\src\main\resources" />
@@ -233,11 +256,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ApiRestApplication" />
-        <item itemvalue="Application.CoreApplication" />
         <item itemvalue="Maven.code-cracker [clean,package,install]" />
-        <item itemvalue="Application.WordProcessor" />
         <item itemvalue="JAR Application.code-cracker-cli-0.0.1-SNAPSHOT.jar" />
+        <item itemvalue="Application.WordProcessor" />
+        <item itemvalue="Application.CoreApplication" />
+        <item itemvalue="Application.ApiRestApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -353,7 +376,23 @@
       <option name="project" value="LOCAL" />
       <updated>1752535359645</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Fixing minor issues in front.">
+      <option name="closed" value="true" />
+      <created>1752545439293</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1752545439293</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Input validation. Session management.">
+      <option name="closed" value="true" />
+      <created>1752550223793</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1752550223793</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -380,7 +419,9 @@
     <MESSAGE value="Controller fix." />
     <MESSAGE value="Git ignore" />
     <MESSAGE value="Fix Controller for all calls." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix Controller for all calls." />
+    <MESSAGE value="Fixing minor issues in front." />
+    <MESSAGE value="Input validation. Session management." />
+    <option name="LAST_COMMIT_MESSAGE" value="Input validation. Session management." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -397,7 +438,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/api-rest/src/main/java/com/caremao/codebreaker/api/controller/CodeBreakerController.java</url>
-          <line>56</line>
+          <line>58</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>

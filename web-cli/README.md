@@ -1,6 +1,7 @@
 # Welcome to your project
 
 ## Project info
+See `AGENTS.md` for instructions on running lint before committing changes.
 
 ## How can I edit this code?
 
