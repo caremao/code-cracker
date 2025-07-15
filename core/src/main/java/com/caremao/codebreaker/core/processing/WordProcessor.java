@@ -13,8 +13,11 @@ import java.util.stream.IntStream;
 public class WordProcessor {
 
     public List<Word> processWords(final List<String> input) {
-        if (Objects.isNull(input) || input.isEmpty()) {
-            throw new IllegalArgumentException("Input should not be empty");
+        if (Objects.isNull(input)) {
+            throw new IllegalArgumentException("Input should not be null");
+        }
+        if (input.isEmpty()) {
+            return List.of();
         }
         return triageWords(
                 input.stream().map(this::processSingleWord)
@@ -45,6 +48,10 @@ public class WordProcessor {
     }
 
     private List<Word> triageWords(List<Word> list) {
+        if (Objects.isNull(list) || list.isEmpty()){
+            return List.of();
+        }
+
         return orderWords(weightWords(list));
     }
 
