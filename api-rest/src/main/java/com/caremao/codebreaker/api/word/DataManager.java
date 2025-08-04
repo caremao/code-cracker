@@ -21,13 +21,14 @@ public class DataManager {
         }
         String word = wordRequest.word();
 
+        List<String> inputWords = wordHolder.getInputWords();
         // Check size
         int wordSize = wordHolder.getWordSize();
-        if (wordSize != 0 && word.length() != wordSize) {
+        if (!inputWords.isEmpty() && wordSize != 0 && word.length() != wordSize) {
             throw new WordValidationException("Words should be of the same size.");
         }
         // Check already inserted
-        if (wordHolder.getInputWords().contains(word)) {
+        if (inputWords.contains(word)) {
             throw new WordValidationException("Word is already present.");
         }
 
