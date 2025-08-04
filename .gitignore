@@ -32,3 +32,19 @@ build/
 ### VS Code ###
 .vscode/
 /.idea/
+/web-cli/.vite/deps/@tanstack_react-query.js
+/web-cli/.vite/deps/@tanstack_react-query.js.map
+/web-cli/.vite/deps/_metadata.json
+/web-cli/.vite/deps/chunk-M5IPRDD5.js
+/web-cli/.vite/deps/chunk-M5IPRDD5.js.map
+/web-cli/.vite/deps/chunk-TJW4JA7A.js
+/web-cli/.vite/deps/chunk-TJW4JA7A.js.map
+/web-cli/.vite/deps/package.json
+/web-cli/.vite/deps/react.js
+/web-cli/.vite/deps/react.js.map
+/web-cli/.vite/deps/react-dom_client.js
+/web-cli/.vite/deps/react-dom_client.js.map
+/web-cli/.vite/deps/react-router-dom.js
+/web-cli/.vite/deps/react-router-dom.js.map
+/web-cli/.vite/deps/react_jsx-dev-runtime.js
+/web-cli/.vite/deps/react_jsx-dev-runtime.js.map
