@@ -33,5 +33,6 @@ public class WordHolder {
 
     public void reset() {
         inputWords.clear();
+        wordSize = 0;
     }
 }

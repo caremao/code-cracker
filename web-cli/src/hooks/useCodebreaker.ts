@@ -5,7 +5,7 @@ import { Word } from '@/types/codebreaker';
 // allow the API base URL to be configured at build time
 // default to the network IP when not provided
 const API_BASE =
-  import.meta.env.VITE_API_BASE || 'http://192.168.100.142:8124/codebreaker/v1';
+  import.meta.env.VITE_API_BASE || 'http://localhost:8124/codebreaker/v1';
 
 export const useCodebreaker = () => {
   const [words, setWords] = useState<Word[]>([]);
@@ -20,7 +20,10 @@ export const useCodebreaker = () => {
   const fetchWords = useCallback(async () => {
     try {
       setIsLoading(true);
-      const response = await fetch(`${API_BASE}/words`);
+      const response = await fetch(`${API_BASE}/words`, {
+        method: 'GET',
+        credentials: 'include',
+      });
       if (response.ok) {
         const data = await response.json();
         setWords(data);
@@ -41,6 +44,7 @@ export const useCodebreaker = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ word: word.toUpperCase() }),
+        credentials: 'include',
       });
 
       if (response.ok) {
@@ -65,6 +69,7 @@ export const useCodebreaker = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ word, hits }),
+        credentials: 'include',
       });
 
       if (response.ok) {
@@ -85,6 +90,7 @@ export const useCodebreaker = () => {
       setIsLoading(true);
       const response = await fetch(`${API_BASE}/words/${word}`, {
         method: 'DELETE',
+        credentials: 'include',
       });
 
       if (response.ok) {
@@ -105,6 +111,7 @@ export const useCodebreaker = () => {
       setIsLoading(true);
       const response = await fetch(`${API_BASE}/reset`, {
         method: 'POST',
+        credentials: 'include',
       });
 
       if (response.ok) {
